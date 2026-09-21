@@ -83,7 +83,7 @@ function Desktop({ visible = false, pulse, isActive, quietCta }: { visible?: boo
         // content. The shell animates the width and corner radius together.
         visible
           ? "max-w-6xl px-3 bg-card/90 dark:bg-card/90"
-          : "max-w-none border-x-0 border-t-0 px-[max(16px,calc((100vw-1120px)/2))] bg-paper dark:bg-paper",
+          : "max-w-none border-x-0 border-t-0 px-[max(16px,calc((100vw-1140px)/2))] bg-paper dark:bg-paper",
       )}
     >
       <Link href="/" className="relative z-20 flex items-center gap-2" aria-label="openlaunch.lol home">
