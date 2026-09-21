@@ -35,7 +35,7 @@
 .tokenTop { fill: var(--color-brand); stroke: var(--color-brand-strong); stroke-width: 1; }
 .tokenRing { stroke: var(--color-inverse); stroke-width: .6; }
 .tokenRidge { stroke: var(--color-brand); stroke-width: .8; }
-.tokenMark { stroke: var(--color-inverse); stroke-width: 3.5; }
+.tokenMark { fill: var(--color-inverse); stroke: none; }
 .callouts { stroke: var(--color-line-strong); stroke-width: .8; }
 .calloutLabel { fill: var(--color-muted); stroke: none; font-family: var(--font-mono); font-size: 10px; letter-spacing: 1px; }
 .calloutSub { fill: var(--color-muted); stroke: none; font-family: var(--font-sans); font-size: 11px; }

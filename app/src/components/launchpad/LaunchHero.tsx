@@ -15,7 +15,7 @@ export default function LaunchHero({ configured }: { ethUsd?: number | null; con
     <section className="relative pt-10 sm:pt-14 pb-2">
       <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-x-8 gap-y-8 xl:gap-x-12 lg:gap-y-0 lg:grid-rows-[min-content_1fr]">
         <div className="min-w-0 lg:col-start-1 lg:row-start-1">
-          <h1 className="font-display font-bold leading-[1.02] tracking-[-0.04em] text-ink text-[40px] min-[400px]:text-5xl sm:text-6xl lg:text-[48px] xl:text-[56px]">
+          <h1 className="font-display font-bold leading-[1.08] tracking-[-0.03em] text-ink text-[28px] min-[400px]:text-[32px] sm:text-[36px] lg:text-[40px] xl:text-[42px]">
             Launch a token.
             <br />
             <span className="text-brand">Free.</span> On Base, Robinhood or Arc.

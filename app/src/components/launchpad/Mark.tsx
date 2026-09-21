@@ -1,26 +1,40 @@
-/**
- * The openlaunch mark: brand-blue tile, white geometric "oL" — same family as
- * the old basebid "b" tile. Plain SVG: usable in server components, the OG
- * image and favicons. `tile=false` draws the letters alone (ink/brand) for
- * light backgrounds.
- */
-export default function Mark({ size = 24, className = "", title = "openlaunch", tile = true, color = "#FFFFFF" }: { size?: number; className?: string; title?: string; tile?: boolean; color?: string }) {
-  const fg = tile ? "#FFFFFF" : color;
+export default function Mark({
+  size = 24,
+  className = "",
+  title = "Flypad",
+  tile = true,
+  color = "#0B0B0F",
+}: {
+  size?: number;
+  className?: string;
+  title?: string;
+  tile?: boolean;
+  color?: string;
+}) {
+  const fg = "currentColor";
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" className={className} role="img" aria-label={title}>
-      {tile ? <rect width="32" height="32" rx="7" fill="#0052FF" /> : null}
-      <path fill={fg} fillRule="evenodd" d="M10.5 13a6.5 6.5 0 1 1 0 13a6.5 6.5 0 1 1 0-13ZM10.5 16.4a3.1 3.1 0 1 0 0 6.2a3.1 3.1 0 1 0 0-6.2Z" />
-      <rect x="19.5" y="6" width="4.6" height="20" rx="1.4" fill={fg} />
-      <rect x="19.5" y="21.4" width="8.2" height="4.6" rx="1.4" fill={fg} />
+    <svg
+      width={size}
+      height={size}
+      viewBox="16.5 11.5 13 25"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`text-ink ${className}`}
+      role="img"
+      aria-label={title}
+    >
+      <path d="M28.4932 31.7455C28.7029 31.9461 28.8695 32.1855 28.9832 32.4497C29.0969 32.714 29.1555 32.9977 29.1555 33.2843C29.1555 33.5709 29.0969 33.8547 28.9832 34.1189C28.8695 34.3832 28.7029 34.6226 28.4932 34.8232L26.9738 36.3036L25.4292 34.7924C24.5813 33.9629 24.0796 32.8553 24.0213 31.6848C23.9631 30.5143 24.3525 29.3644 25.1139 28.4585L28.4932 31.7455Z" fill={fg} />
+      <path fillRule="evenodd" clipRule="evenodd" d="M26.1117 29.429C25.7195 29.8809 25.4017 30.3924 25.1708 30.9448C24.8831 31.6335 24.7363 32.372 24.7392 33.1174C24.7399 33.435 24.7673 33.752 24.8208 34.065C24.343 33.361 24.0639 32.5396 24.0213 31.6848C23.9631 30.5143 24.3525 29.3644 25.114 28.4585L26.1117 29.429Z" fill={fg} fillOpacity="0.15" />
+      <path d="M28.5312 20.6726C28.9307 21.073 29.1552 21.6156 29.1552 22.1814C29.1552 22.7472 28.9307 23.2898 28.5312 23.6902L24.7921 27.4309C24.2583 27.9617 23.8352 28.5932 23.5474 29.2889C23.2596 29.9846 23.1129 30.7305 23.1157 31.4834C23.1166 31.8762 23.1574 32.2679 23.2372 32.6524L21.7634 31.1374C20.8669 30.2391 20.3633 29.0215 20.3633 27.752C20.3633 26.4826 20.8669 25.265 21.7634 24.3666L27.0044 19.1265L28.5312 20.6726Z" fill={fg} />
+      <path fillRule="evenodd" clipRule="evenodd" d="M28.0121 20.147L22.4987 25.6878C21.83 26.3582 21.3383 27.1852 21.0681 28.0943C20.9013 28.6555 20.8222 29.2371 20.8316 29.8185C20.5261 29.1792 20.3633 28.474 20.3633 27.752C20.3633 26.4826 20.8669 25.265 21.7634 24.3667L27.0043 19.1265L28.0121 20.147Z" fill={fg} fillOpacity="0.15" />
+      <path d="M28.533 13.3421C28.9312 13.7391 29.1548 14.2773 29.1548 14.8384C29.1548 15.3995 28.9312 15.9376 28.533 16.3346V16.3346L21.1458 23.7003C20.477 24.3653 19.9854 25.1858 19.7152 26.0877C19.445 26.9896 19.4049 27.9443 19.5984 28.8655L18.1036 27.3738C17.6621 26.935 17.3119 26.4138 17.0729 25.84C16.8339 25.2663 16.7109 24.6512 16.7109 24.03C16.7109 23.4089 16.8339 22.7938 17.0729 22.22C17.3119 21.6462 17.6621 21.125 18.1036 20.6862L27.0042 11.8228L28.533 13.3421Z" fill={fg} />
     </svg>
   );
 }
 
-/** Wordmark: "openlaunch" + ".lol" in brand blue. */
 export function Wordmark({ className = "", size = 15 }: { className?: string; size?: number }) {
   return (
     <span className={`font-semibold tracking-tight text-ink ${className}`} style={{ fontSize: size }}>
-      openlaunch<span className="text-brand">.lol</span>
+      Flypad<span className="text-brand">.dev</span>
     </span>
   );
 }

@@ -44,13 +44,6 @@ export default function Footer() {
         </div>
 
         <div className={styles.proof}>
-          <div className={styles.proofIntro}>
-            <FileCode2 size={20} aria-hidden="true" />
-            <div>
-              <p className={styles.proofTitle}>The code is the commitment.</p>
-              <Link href="/rules#contracts" className={styles.verification}>Verify the contracts <ArrowUpRight size={13} aria-hidden="true" /></Link>
-            </div>
-          </div>
           {CHAIN_KEYS.map((chain) => {
             const { factory, locker } = launchpad(chain);
             return (
@@ -65,12 +58,8 @@ export default function Footer() {
           })}
         </div>
 
-        <Link href="/" aria-label={`${BRAND_DOMAIN} home`} className={styles.signature}>
-          <span aria-hidden="true">{BRAND}</span>
-        </Link>
-
         <div className={styles.bottom}>
-          <p>Open source. Open participation.</p>
+          <p>© 2026 Flypad. All rights reserved.</p>
           <div className={styles.utilities}>
             <a href={`${BRAND_GITHUB}/blob/main/LICENSE`} target="_blank" rel="noreferrer" className={styles.license}>MIT licensed <ArrowUpRight size={12} aria-hidden="true" /></a>
             <a href="#site-top" className={styles.backTop}>Back to top <ArrowUp size={14} aria-hidden="true" /></a>

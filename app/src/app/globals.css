@@ -30,9 +30,9 @@
   --color-skeleton-highlight: #f5f4f1;
 
   /* accent */
-  --color-brand: #0052ff;
-  --color-brand-strong: #0041cc;
-  --color-brand-soft: #eaf0ff;
+  --color-brand: #673ab7;
+  --color-brand-strong: #512da8;
+  --color-brand-soft: #ede7f6;
 
   /* money: up (refund / locked), down (displaced), warm (takeover / testnet) */
   --color-up: #15803d;
@@ -77,10 +77,10 @@
   --color-inverse: #000000;
   --color-skeleton: #141414;
   --color-skeleton-highlight: #1f1f1f;
-  --color-brand: #4d8bff;
-  --color-brand-strong: #7aa6ff;
-  --color-brand-soft: #0d1b33;
-  --color-up: #05df72;
+  --color-brand: #9575cd;
+  --color-brand-strong: #b39ddb;
+  --color-brand-soft: #2a1a40;
+  --color-up: #673ab7;
   --color-up-soft: #06241a;
   --color-down: #ff6b6b;
   --color-down-ink: #ff8a8a;

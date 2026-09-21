@@ -122,7 +122,17 @@ export default function LaunchMachine() {
             {[-40, -30, -20, -10, 0, 10, 20, 30, 40].map((n) => <path key={n} d={`M${280 + n} ${106 + 23 * Math.sqrt(1 - (n / 52) ** 2)}v-12`} className={styles.tokenRidge} />)}
             <ellipse cx="280" cy="88" rx="52" ry="23" className={styles.tokenTop} />
             <ellipse cx="280" cy="88" rx="43" ry="18" className={styles.tokenRing} />
-            <g transform="matrix(.86 .38 -.86 .38 280 87)"><path d="M-22 -14H-4V14H-22ZM6 -14V14H24" className={styles.tokenMark} /></g>
+            <g transform="matrix(.86 .38 -.86 .38 280 87)">
+  <text
+    textAnchor="middle"
+    dominantBaseline="middle"
+    fontSize="22"
+    letterSpacing="3"
+    className={styles.tokenMark}
+  >
+    FLY
+  </text>
+</g>
           </g>
           </g>
           <g className={styles.callouts}>
