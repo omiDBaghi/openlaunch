@@ -6,7 +6,7 @@
 .fieldset { min-width: 0; padding: 0; border: 0; }
 .rates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 20px; border-bottom: 1px solid var(--color-line); }
 .rate { position: relative; display: flex; min-width: 0; flex-direction: column; gap: 4px; padding: 15px 12px 16px; border-radius: 10px 10px 0 0; color: var(--color-ink); cursor: pointer; transition: background-color 180ms ease-out, color 180ms ease-out; }
-.rate::after { position: absolute; right: 12px; bottom: -1px; left: 12px; height: 2px; background: transparent; content: ""; transition: background-color 180ms ease-out; }
+.rate::after { position: absolute; right: 0px; bottom: -1px; left: 0px; height: 2px; background: transparent; content: ""; transition: background-color 180ms ease-out; }
 .rate:hover { background: var(--color-paper); }
 .rate[data-selected="true"] { color: var(--color-brand); background: var(--color-brand-soft); }
 .rate[data-selected="true"]::after { background: var(--color-brand); }
