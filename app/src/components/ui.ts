@@ -17,7 +17,7 @@ export const btn = {
   icon: `${btnBase} h-10 w-10 rounded-xl text-ink hover:bg-paper border border-transparent hover:border-line`,
 };
 
-export const card = "rounded-2xl bg-card border border-line shadow-card";
+export const card = "token-glow rounded-2xl bg-card border border-line shadow-card";
 export const cardPad = `${card} p-5`;
 
 /** Small uppercase eyebrow label (Inter 11px). Use sparingly. */

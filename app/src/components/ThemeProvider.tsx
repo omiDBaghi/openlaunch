@@ -41,7 +41,7 @@ function ThemeColorSync() {
  */
 export default function ThemeProvider({ children, nonce }: { children: React.ReactNode; nonce?: string }) {
   return (
-    <NextThemes attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange nonce={nonce}>
+    <NextThemes attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange nonce={nonce}>
       <ThemeColorSync />
       {children}
     </NextThemes>

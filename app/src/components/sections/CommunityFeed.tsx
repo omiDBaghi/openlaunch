@@ -25,8 +25,7 @@ export default function CommunityFeed({ initial, loadError = false }: { initial:
   const [refreshing, startTransition] = useTransition();
   const observed = useRef(communityFingerprint(initial));
   const fullWindowRefresh = useRef(0);
-  // Keep the server's 100-row window. A changed shared snapshot is a refresh
-  // signal, not a replacement with the poller's shorter 30-row window.
+
   useEffect(() => {
     observed.current = communityFingerprint(initial);
     fullWindowRefresh.current = nowMs();
@@ -35,8 +34,6 @@ export default function CommunityFeed({ initial, loadError = false }: { initial:
       setNow(nowMs());
       if (!snap.posts) return;
       const next = communityFingerprint(snap.posts);
-      // Also refresh the older loaded rows periodically so moderated posts
-      // outside the live snapshot cannot remain visible indefinitely.
       if (next === observed.current && nowMs() - fullWindowRefresh.current < 60_000) return;
       observed.current = next;
       fullWindowRefresh.current = nowMs();
@@ -45,12 +42,21 @@ export default function CommunityFeed({ initial, loadError = false }: { initial:
     return () => { clearTimeout(timer); unsubscribe(); };
   }, [initial, router, subscribe]);
 
+  useEffect(() => {
+    function move(event: PointerEvent) {
+      document.documentElement.style.setProperty("--glow-x", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--glow-y", `${event.clientY}px`);
+    }
+    window.addEventListener("pointermove", move);
+    return () => window.removeEventListener("pointermove", move);
+  }, []);
+
   const shown = filterCommunityPosts(initial, chain, query);
   const filtered = Boolean(chain || query.trim());
   function reset() { setChain(null); setQuery(""); }
 
   return <div className={styles.layout}>
-    <section className={shell.panel} aria-label="Recent community posts" aria-busy={refreshing}>
+    <section className={`${shell.panel} token-glow`} aria-label="Recent community posts" aria-busy={refreshing}>
       <div className={styles.toolbar}>
         <div className={styles.feedTitle}><MessageSquare size={17} aria-hidden="true" /><h2>Community feed</h2><span>Newest first</span></div>
         <button type="button" className={styles.refresh} onClick={() => startTransition(() => router.refresh())} disabled={refreshing} aria-label="Refresh posts" title="Refresh posts"><RefreshCw size={15} aria-hidden="true" /></button>
@@ -118,7 +124,7 @@ export default function CommunityFeed({ initial, loadError = false }: { initial:
         </ol>
         <Link href="/#launches" className={shell.textLink}>Explore launches <ArrowUpRight size={15} aria-hidden="true" /></Link>
       </section>
-      <section className={styles.note}>
+      <section className={`${styles.note} token-glow`}>
         <Signature size={21} aria-hidden="true" />
         <h2>A wallet behind every post.</h2>
         <p>Posting is open to creators, token holders, and wallets that have traded or launched here. No account to create. No gas to post.</p>

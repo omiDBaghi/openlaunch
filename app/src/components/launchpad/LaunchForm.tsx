@@ -199,6 +199,14 @@ export default function LaunchForm({ ethUsd, gitlawbUsd = null, initialChain = D
       clearTimeout(t);
     };
   }, [chain, quoteKey, stockQ]);
+  useEffect(() => {
+    function move(event: PointerEvent) {
+      document.documentElement.style.setProperty("--glow-x", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--glow-y", `${event.clientY}px`);
+    }
+    window.addEventListener("pointermove", move);
+    return () => window.removeEventListener("pointermove", move);
+  }, []);
   const config = useConfig();
   const { address, isConnected, chainId } = useAccount();
   const [pickerOpen, setPickerOpen] = useState(false);

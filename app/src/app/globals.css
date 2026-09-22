@@ -31,7 +31,7 @@
 
   /* accent */
   --color-brand: #673ab7;
-  --color-brand-strong: #512da8;
+  --color-brand-strong: #5e35b1;
   --color-brand-soft: #ede7f6;
 
   /* money: up (refund / locked), down (displaced), warm (takeover / testnet) */
@@ -80,7 +80,7 @@
   --color-brand: #9575cd;
   --color-brand-strong: #b39ddb;
   --color-brand-soft: #2a1a40;
-  --color-up: #673ab7;
+  --color-up: #9575cd;
   --color-up-soft: #06241a;
   --color-down: #ff6b6b;
   --color-down-ink: #ff8a8a;
@@ -190,7 +190,16 @@ input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
   outline-offset: 2px;
   border-radius: 6px;
 }
-
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}
 /* transaction toasts */
 .bb-toast-region {
   position: fixed;
@@ -332,4 +341,29 @@ input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
   ::view-transition-new(root) {
     animation: none !important;
   }
+}
+
+:root {
+  --glow-x: 50vw;
+  --glow-y: 50vh;
+}
+.token-glow {
+  position: relative;
+  isolation: isolate;
+}
+.token-glow::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 2px;
+  pointer-events: none;
+  z-index: 8;
+  background: radial-gradient(250px 250px at var(--glow-x) var(--glow-y), #ac82c9, transparent 70%);
+  background-attachment: fixed;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }

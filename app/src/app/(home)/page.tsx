@@ -36,7 +36,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             <LaunchTape initial={feed} />
             <div className="min-w-0 space-y-4">
               <PostsFeed initial={posts} compact />
-              <section aria-labelledby="free-heading" className="rounded-2xl border border-line bg-paper p-4">
+              <section aria-labelledby="free-heading" className="token-glow rounded-2xl border border-line bg-paper p-4">
                 <h2 id="free-heading" className="text-sm font-semibold text-ink">Why it&apos;s free</h2>
                 <p className="mt-2 text-pretty text-xs leading-relaxed text-muted">No fee address in the factory. No platform cut in the locker. On every chain.</p>
                 <dl className="mt-4 divide-y divide-line border-y border-line text-xs">

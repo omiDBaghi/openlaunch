@@ -217,7 +217,7 @@ export default function LaunchList({ initial, initialHasMore = false, initialSor
   const firstQuiet = ranked ? shown.findIndex((row) => liveTier(row, now) === "quiet") : -1; // one divider, where the database's order enters the quiet tier
 
   return (
-    <section id="launches" aria-labelledby="launches-heading" className="min-w-0 scroll-mt-24 overflow-hidden rounded-2xl border border-line bg-paper">
+        <section id="launches" aria-labelledby="launches-heading" className="token-glow min-w-0 scroll-mt-24 rounded-2xl border border-line bg-paper">
       <div className="space-y-4 px-4 pt-5">
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
           <div>

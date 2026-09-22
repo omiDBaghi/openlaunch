@@ -17,7 +17,6 @@ import { launchKey, refreshInPlace } from "@/lib/launchpad/list-state";
 
 type Snap = { window: "1h" | "24h"; items: LaunchRow[] };
 
-/** Existing on-chain ranking and two-poll leader hold, with chain-scoped identity. */
 export default function TrendingStrip({ initial }: { initial: Snap }) {
   const { subscribe } = useLive();
   const [snap, setSnap] = useState(initial);
@@ -34,7 +33,6 @@ export default function TrendingStrip({ initial }: { initial: Snap }) {
       if (!live.trending) return;
       if (active.current.pointer || active.current.focus) {
         pending.current = live.trending;
-        // Preserve the displayed time window too: don't relabel old rankings.
         const next = live.trending;
         setSnap((cur) => ({ ...cur, items: refreshInPlace(cur.items, next.items) }));
       } else {
@@ -51,6 +49,15 @@ export default function TrendingStrip({ initial }: { initial: Snap }) {
     return () => { unsubscribe(); clearInterval(timer); };
   }, [subscribe]);
 
+  useEffect(() => {
+    function move(event: PointerEvent) {
+      document.documentElement.style.setProperty("--glow-x", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--glow-y", `${event.clientY}px`);
+    }
+    window.addEventListener("pointermove", move);
+    return () => window.removeEventListener("pointermove", move);
+  }, []);
+
   const leader = snap.items.find((row) => launchKey(row) === crown.king);
   const items = leader ? [leader, ...snap.items.filter((row) => launchKey(row) !== crown.king)] : snap.items;
 
@@ -65,7 +72,7 @@ export default function TrendingStrip({ initial }: { initial: Snap }) {
         <span className="text-[11px] text-muted" title="Ranked by distinct wallets other than the launcher, then trades, volume and holders (log-scaled), with a boost for young tokens. The hourly window needs two such wallets; the daily window needs one.">Ranked by on-chain activity</span>
       </div>
       {items.length === 0 ? (
-        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 rounded-xl border border-dashed border-line-strong px-4 py-4">
+        <div className="token-glow flex flex-wrap items-center justify-between gap-x-6 gap-y-2 rounded-xl border border-line bg-card px-4 py-4">
           <p className="text-xs text-muted">A quiet window. Trending appears when tokens have enough trading activity.</p>
           <a href="#launches" className="inline-flex min-h-8 items-center gap-1.5 text-xs font-medium text-body hover:text-ink">Explore launches <ArrowUpRight size={13} aria-hidden="true" /></a>
         </div>
@@ -76,11 +83,9 @@ export default function TrendingStrip({ initial }: { initial: Snap }) {
             const volume = snap.window === "1h" ? row.volume_1h_usd : row.volume_24h_usd;
             const quoteVolume = snap.window === "1h" ? row.volume_1h : row.volume_24h;
             const volumeLabel = volume !== null ? marketUsd(volume) : fmtQuote(quoteVolume, row.quote_decimals, row.quote_symbol);
-            // `relative`: the cards hold sr-only (absolutely positioned) labels; without a positioned ancestor inside
-            // the scroller they resolve against <main> and stretch the whole page sideways on phones
             return (
               <li key={launchKey(row)} className="relative min-w-0 snap-start">
-                <Link href={`/t/${row.chain}/${row.token}`} className={`group block h-full rounded-xl border bg-card p-3.5 transition-colors hover:border-muted motion-reduce:transition-none ${index === 0 ? "border-line-strong" : "border-line"}`}>
+                <Link href={`/t/${row.chain}/${row.token}`} className="token-glow group relative block h-full rounded-xl border border-line bg-card p-3.5">
                   <div className="mb-3 flex items-center justify-between text-[11px] text-muted">
                     <span className="font-mono tnum">0{index + 1}<span className="sr-only"> ranked</span></span>
                     {isGitlawbQuote(row.quote_key) ? <span className="flex items-center gap-1">{CHAIN_SHORT[row.chain]} · <GitlawbBadge /></span> : <span>{CHAIN_SHORT[row.chain]} · {row.quote_symbol}</span>}

@@ -306,7 +306,7 @@ export function PostsFeed({ initial, compact = false }: { initial: PostRow[]; co
   };
   const shown = compact ? posts.slice(0, COMPACT_LIMIT) : posts;
   return (
-    <section className={`rounded-2xl border border-line overflow-hidden ${compact ? "bg-paper" : "bg-card"}`}>
+    <section className={`token-glow rounded-2xl border border-line ${compact ? "bg-paper" : "bg-card"}`}>
       <div className={`px-4 ${compact ? "min-h-14" : "h-11"} flex items-center justify-between gap-2 ${compact && collapsed ? "" : "border-b border-line"}`}>
         <h2 className="text-sm font-semibold text-ink flex items-center gap-2">
           {compact ? <MessageSquare size={14} aria-hidden="true" className="text-muted" /> : null}
