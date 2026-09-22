@@ -30,9 +30,9 @@
   --color-skeleton-highlight: #f5f4f1;
 
   /* accent */
-  --color-brand: #673ab7;
-  --color-brand-strong: #5e35b1;
-  --color-brand-soft: #ede7f6;
+  --color-brand: #0052ff;
+  --color-brand-strong: #0041cc;
+  --color-brand-soft: #eaf0ff;
 
   /* money: up (refund / locked), down (displaced), warm (takeover / testnet) */
   --color-up: #15803d;
@@ -77,10 +77,10 @@
   --color-inverse: #000000;
   --color-skeleton: #141414;
   --color-skeleton-highlight: #1f1f1f;
-  --color-brand: #9575cd;
-  --color-brand-strong: #b39ddb;
-  --color-brand-soft: #2a1a40;
-  --color-up: #9575cd;
+  --color-brand: #4d8bff;
+  --color-brand-strong: #7aa6ff;
+  --color-brand-soft: #0d1b33;
+  --color-up: #05df72;
   --color-up-soft: #06241a;
   --color-down: #ff6b6b;
   --color-down-ink: #ff8a8a;
@@ -190,16 +190,7 @@ input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
   outline-offset: 2px;
   border-radius: 6px;
 }
-input:focus,
-input:focus-visible,
-textarea:focus,
-textarea:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
-  --tw-ring-color: transparent !important;
-  --tw-ring-shadow: 0 0 #0000 !important;
-  --tw-ring-offset-shadow: 0 0 #0000 !important;
-}
+
 /* transaction toasts */
 .bb-toast-region {
   position: fixed;
@@ -342,7 +333,6 @@ textarea:focus-visible {
     animation: none !important;
   }
 }
-
 :root {
   --glow-x: 50vw;
   --glow-y: 50vh;
@@ -359,7 +349,7 @@ textarea:focus-visible {
   padding: 2px;
   pointer-events: none;
   z-index: 8;
-  background: radial-gradient(250px 250px at var(--glow-x) var(--glow-y), #ac82c9, transparent 70%);
+  background: radial-gradient(250px 250px at var(--glow-x) var(--glow-y), #4d8bff, transparent 70%);
   background-attachment: fixed;
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,

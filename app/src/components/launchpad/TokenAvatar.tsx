@@ -39,7 +39,7 @@ export default function TokenAvatar({ token, symbol, image, size = 40, className
     <div
       aria-hidden
       className={`shrink-0 rounded-xl grid place-items-center font-display font-bold text-white select-none ${className}`}
-      style={{ ...style, background: "linear-gradient(135deg, #9575cd, #673ab7)" }}
+      style={{ ...style, background: "var(--color-brand)" }}
     >
       {symbol.slice(0, 1).toUpperCase()}
     </div>
