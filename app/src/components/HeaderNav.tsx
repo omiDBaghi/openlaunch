@@ -163,8 +163,10 @@ function LaunchCta({ compact = false, block = false, quiet = false, onNavigate }
       onClick={onNavigate}
       className={cn(
         "inline-flex items-center justify-center gap-1.5 font-semibold whitespace-nowrap transition-colors",
-        quiet ? "border border-line bg-card text-body hover:text-ink hover:border-line-strong" : "bg-brand text-inverse hover:bg-brand-strong",
-        block ? "w-full min-h-12 rounded-xl text-[15px]" : "h-9 rounded-full text-[13px]",
+        quiet
+          ? "border border-line bg-card text-body hover:text-ink hover:border-line-strong"
+          : "launch-cta-grad",
+        block ? "w-full min-h-12 rounded-full text-[15px]" : "h-9 rounded-full text-[13px]",
         block ? "" : compact ? "px-3.5" : "px-4",
       )}
     >

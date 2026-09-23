@@ -928,7 +928,7 @@ function SubmitButton({
   onSwitch: () => void;
   label: string;
 }) {
-  const cls = `${btn.primary} w-full min-h-12 text-[15px]`;
+  const cls = `launch-cta-grad w-full min-h-12 text-[15px] rounded-xl font-semibold`;
   if (!configured)
     return (
       <button type="button" disabled className={cls}>

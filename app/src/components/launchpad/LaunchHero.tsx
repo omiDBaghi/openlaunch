@@ -25,7 +25,8 @@ export default function LaunchHero({ configured }: { ethUsd?: number | null; con
           </p>
           <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
             {/* the header watches this id: while it is on screen the header CTA stays quiet (one filled blue per screen) */}
-            <Link id="hero-cta" href="/launch" className={`${btn.primary} w-full sm:w-auto min-h-12 px-7 text-[15px]`}>
+            <Link id="hero-cta" href="/launch" className="launch-cta-grad inline-flex items-center justify-center gap-1 min-h-12 px-7 text-[15px] rounded-full font-semibold">
+            
               Launch a token
               <ArrowRight size={16} strokeWidth={2.4} aria-hidden className="ml-1" />
             </Link>

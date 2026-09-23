@@ -30,9 +30,9 @@
   --color-skeleton-highlight: #f5f4f1;
 
   /* accent */
-  --color-brand: #0052ff;
-  --color-brand-strong: #0041cc;
-  --color-brand-soft: #eaf0ff;
+--color-brand: #6C63FF;
+--color-brand-strong: #5548E8;
+--color-brand-soft: #F1EFFF;
 
   /* money: up (refund / locked), down (displaced), warm (takeover / testnet) */
   --color-up: #15803d;
@@ -77,9 +77,9 @@
   --color-inverse: #000000;
   --color-skeleton: #141414;
   --color-skeleton-highlight: #1f1f1f;
-  --color-brand: #4d8bff;
-  --color-brand-strong: #7aa6ff;
-  --color-brand-soft: #0d1b33;
+--color-brand: #A78BFA;
+--color-brand-strong: #C4B5FD;
+--color-brand-soft: #241B3D;
   --color-up: #05df72;
   --color-up-soft: #06241a;
   --color-down: #ff6b6b;
@@ -188,9 +188,18 @@ input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
 :focus-visible {
   outline: 2px solid var(--color-brand);
   outline-offset: 2px;
-  border-radius: 6px;
+  border-radius: 12px;
 }
-
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}
 /* transaction toasts */
 .bb-toast-region {
   position: fixed;
@@ -337,10 +346,12 @@ input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
   --glow-x: 50vw;
   --glow-y: 50vh;
 }
+
 .token-glow {
   position: relative;
   isolation: isolate;
 }
+
 .token-glow::after {
   content: "";
   position: absolute;
@@ -349,11 +360,40 @@ input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
   padding: 2px;
   pointer-events: none;
   z-index: 8;
-  background: radial-gradient(250px 250px at var(--glow-x) var(--glow-y), #4d8bff, transparent 70%);
+
+  background: radial-gradient(
+    200px 200px at var(--glow-x) var(--glow-y),
+    #6c63ff 0%,
+    #a78bfa 45%,
+    #f472b6 70%,
+    transparent 100%
+  );
+
   background-attachment: fixed;
+
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
+
   -webkit-mask-composite: xor;
   mask-composite: exclude;
+}
+
+.launch-cta-grad {
+  position: relative;
+  color: #fff;
+  background: linear-gradient(92deg, #6c63ff, #a78bfa 55%, #f472b6);
+  box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
+  border: 0;
+  isolation: isolate;
+}
+.launch-cta-grad:hover {
+  filter: brightness(1.06);
+}
+.text-brand {
+  background-image: linear-gradient(92deg, #6c63ff, #a78bfa 55%, #f472b6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
