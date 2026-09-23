@@ -127,8 +127,8 @@
 .stageButton[aria-pressed="true"]::after { background: var(--color-ink); }
 .stageNumber { font-family: var(--font-mono); font-size: 10px; color: var(--color-muted); }
 .stageDot { margin-left: auto; width: 4px; height: 4px; border-radius: 50%; background: transparent; }
-.stageButton[aria-pressed="true"] .stageDot { background: var(--color-brand); }
-.stageProgress { position: absolute; z-index: 1; pointer-events: none; bottom: -1px; left: 8px; right: 8px; height: 2px; background: var(--color-brand); transform-origin: left; opacity: 0; }
+.stageButton[aria-pressed="true"] .stageDot { background: linear-gradient(92deg, #6c63ff, #a78bfa 55%, #f472b6); }
+.stageProgress { position: absolute; z-index: 1; pointer-events: none; bottom: -1px; left: 0; right: 0; height: 2px; background: linear-gradient(92deg, #6c63ff, #a78bfa 55%, #f472b6); transform-origin: left; opacity: 0; }
 /* Same 7.2s clock as the geometry: pool at 24%, lock at 49%, token returns at 89%.
    The token's negative delay continues its phase across the loop seam (89% → 24%). */
 .machine[data-loop="true"] .stageProgress[data-phase="0"] { animation: token-progress var(--cycle) linear calc(var(--cycle) * -.11) infinite; }
@@ -174,7 +174,7 @@
 @media (max-width: 639px) {
   .eyebrow { font-size: 10px; }
   .stageButton { gap: 6px; padding-inline: 6px; font-size: 11px; }
-  .stageButton::after, .stageProgress { left: 6px; right: 6px; }
+  .stageButton::after, .stageProgress { left: 0px; right: 0px; }
   .stageDot { display: none; }
   .detail { min-height: 115px; padding-inline: 6px; }
   .proof { padding-inline: 6px; }

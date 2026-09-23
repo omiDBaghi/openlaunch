@@ -102,7 +102,13 @@ export default function LaunchMachine() {
     </div>
     <div className={styles.viewport} onPointerMove={tilt} onPointerLeave={() => scene.current?.style.removeProperty("transform")}>
       <div ref={scene} className={styles.scene}>
-        <div style={{ background: dark ? "#000000" : "#fafaf8", borderRadius: 12, overflow: "hidden" }}>
+        <div style={{
+          background: dark ? "#000000" : "#fafaf8",
+          borderRadius: 12,
+          overflow: "hidden",
+          WebkitMaskImage: "linear-gradient(to bottom, #000 50%, transparent 100%)",
+          maskImage: "linear-gradient(to bottom, #000 50%, transparent 100%)",
+        }}>
           <video
             key={src}
             ref={videoRef}

@@ -86,17 +86,15 @@ function Desktop({ visible = false, pulse, isActive, quietCta }: { visible?: boo
           : "max-w-none border-x-0 border-t-0 px-[max(16px,calc((100vw-1140px)/2))] bg-paper dark:bg-paper",
       )}
     >
-      <Link href="/" className="relative z-20 flex items-center gap-2" aria-label="openlaunch.lol home">
-        <Mark size={24} />
-        {/* the wordmark and pulse are the first things to give way when the strip contracts */}
-        {!visible ? <Wordmark /> : null}
+      <Link href="/" className="relative z-20 flex items-center" aria-label="Flypad.dev home">
+        <Mark size={24} className="block" />
+        {!visible ? <span className="ml-0"><Wordmark /></span> : null}
       </Link>
       {!visible ? (
-        <div className="relative z-20 ml-1 hidden xl:block">
+        <div className="relative z-20 ml-2 hidden xl:block">
           <LivePulse initial={pulse} />
         </div>
       ) : null}
-
       <NavLinks isActive={isActive} compact={visible} />
 
       <div className="relative z-20 ml-auto flex items-center gap-2">
