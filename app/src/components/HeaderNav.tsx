@@ -86,7 +86,7 @@ function Desktop({ visible = false, pulse, isActive, quietCta }: { visible?: boo
           : "max-w-none border-x-0 border-t-0 px-[max(16px,calc((100vw-1140px)/2))] bg-paper dark:bg-paper",
       )}
     >
-      <Link href="/" className="relative z-20 flex items-center" aria-label="Flypad.dev home">
+      <Link href="/" className="relative z-20 flex items-center" aria-label="Flypad.com home">
         <Mark size={24} className="block" />
         {!visible ? <span className="ml-0"><Wordmark /></span> : null}
       </Link>
