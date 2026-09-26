@@ -23,7 +23,7 @@ function config(): Store {
     // Same-origin by default: the app reads the object with its credentials and serves it immutable.
     // Tigris' bucket-level public flag proved unreliable (403 even with public-read ACLs), and our own
     // domain in on-chain metadata URIs is the more durable choice anyway. IMAGE_PUBLIC_BASE overrides.
-    const site = (process.env.NEXT_PUBLIC_SITE_URL || "https://openlaunch.lol").replace(/\/+$/, "");
+    const site = (process.env.NEXT_PUBLIC_SITE_URL || "https://Flypad.com").replace(/\/+$/, "");
     const publicBase = process.env.IMAGE_PUBLIC_BASE || `${site}/api/launch/image`;
     cached = { kind: "s3", client: new S3Client({ region: process.env.AWS_REGION || "auto", endpoint, forcePathStyle: false, credentials: { accessKeyId: key, secretAccessKey: secret } }), bucket, publicBase };
   } else if (process.env.IMAGE_STORE === "local") {
