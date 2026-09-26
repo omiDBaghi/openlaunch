@@ -26,7 +26,7 @@ const PRICE_TTL: Record<ChainKey, number> = { robinhood: 30_000, base: 60_000, a
 
 async function fetchRegistry(): Promise<Cache | null> {
   try {
-    const res = await fetch(STOCK_REGISTRY_URL, { headers: { accept: "application/json", "user-agent": "openlaunch.lol" }, signal: AbortSignal.timeout(8_000), cache: "no-store" });
+    const res = await fetch(STOCK_REGISTRY_URL, { headers: { accept: "application/json", "user-agent": "Flypad.com" }, signal: AbortSignal.timeout(8_000), cache: "no-store" });
     if (!res.ok) throw new Error(`registry ${res.status}`);
     const list = parseRegistry(await res.json());
     if (list.length === 0) throw new Error("registry empty");
