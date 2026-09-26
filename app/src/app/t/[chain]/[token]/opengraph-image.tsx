@@ -23,7 +23,7 @@ function gitlawbLogoDataUrl(): Promise<string | null> {
     .catch(() => null));
 }
 
-export const alt = "token on openlaunch.lol";
+export const alt = "token on Flypad.com";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const dynamic = "force-dynamic";
