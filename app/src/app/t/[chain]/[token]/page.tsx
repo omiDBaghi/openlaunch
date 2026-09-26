@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ chain: st
   const l = isChainKey(chain) && isAddress(token) ? await getLaunch(chain, token) : null;
   if (!l) return { title: "Token not found" };
   const title = `${l.name} (${l.symbol})`;
-  const description = clampSocial(l.description ?? `${l.name} launched on openlaunch.lol. 100% of supply locked as Uniswap v4 liquidity on ${CHAIN_LABELS[l.chain]}, ${l.lp_fee === 0 ? "0% trading fee" : "no platform fee"}.`, 155);
+  const description = clampSocial(l.description ?? `${l.name} launched on Flypad.com. 100% of supply locked as Uniswap v4 liquidity on ${CHAIN_LABELS[l.chain]}, ${l.lp_fee === 0 ? "0% trading fee" : "no platform fee"}.`, 155);
   // Next replaces nested metadata objects rather than merging them, so repeat the site-level fields here:
   // og:site_name (Discord shows it above the title) and twitter summary_large_image (full-width card).
   return {
