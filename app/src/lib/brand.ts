@@ -3,7 +3,7 @@ export const BRAND = "Flypad";
 export const BRAND_TLD = ".com";
 export const BRAND_DOMAIN = `${BRAND}${BRAND_TLD}`; // Flypad.com
 /** @Flypad_com and the Flypad GitHub org were squatted after the rename — never link them. */
-export const BRAND_X = "Flypad_com"; // the official account (never link the look-alike handles)
+export const BRAND_X = "@FlypadLabs"; // the official account (never link the look-alike handles)
 export const BRAND_GITHUB = "https://github.com/Flypad"; // MIT, contracts + site
 export const TAGLINE = "launch a token. Free. Open source. On Base, Robinhood Chain or Arc.";
 /**
