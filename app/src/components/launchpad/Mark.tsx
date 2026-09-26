@@ -34,7 +34,7 @@ export default function Mark({
 export function Wordmark({ className = "", size = 15 }: { className?: string; size?: number }) {
   return (
     <span className={`font-semibold tracking-tight text-ink ${className}`} style={{ fontSize: size }}>
-      Flypad<span className="text-brand">.dev</span>
+      Flypad<span className="text-brand">.com</span>
     </span>
   );
 }
