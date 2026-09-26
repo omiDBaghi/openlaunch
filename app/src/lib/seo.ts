@@ -115,7 +115,7 @@ export function tokenJsonLd(l: TokenJsonLdInput): Record<string, unknown> {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: `${l.name} (${l.symbol})`,
-    description: (l.description ?? `${l.name} launched on openlaunch.lol.`).slice(0, 500),
+    description: (l.description ?? `${l.name} launched on Flypad.com.`).slice(0, 500),
     url,
     dateCreated: l.blockTime,
     about: {
