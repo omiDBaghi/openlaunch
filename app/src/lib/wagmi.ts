@@ -11,7 +11,7 @@ const chains = keys.map((k) => CHAINS[k]) as [Chain, ...Chain[]];
 
 export const wagmiConfig = createConfig({
   chains,
-  connectors: [injected(), coinbaseWallet({ appName: "openlaunch.lol", preference: { options: "all", telemetry: false } })],
+  connectors: [injected(), coinbaseWallet({ appName: "Flypad.com", preference: { options: "all", telemetry: false } })],
   transports: Object.fromEntries(keys.map((k) => [CHAINS[k].id, http(browserRpc(k), { batch: true })])),
   ssr: true,
 });
