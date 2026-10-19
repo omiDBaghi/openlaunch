@@ -27,7 +27,7 @@ function config(): Store {
     const publicBase = process.env.IMAGE_PUBLIC_BASE || `${site}/api/launch/image`;
     cached = { kind: "s3", client: new S3Client({ region: process.env.AWS_REGION || "auto", endpoint, forcePathStyle: false, credentials: { accessKeyId: key, secretAccessKey: secret } }), bucket, publicBase };
   } else if (process.env.IMAGE_STORE === "local") {
-    const site = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/+$/, "");
+    const site = (process.env.NEXT_PUBLIC_SITE_URL || "https://flypad.cam").replace(/\/+$/, "");
     cached = { kind: "local", dir: path.join(process.cwd(), ".uploads"), publicBase: `${site}/api/launch/image` };
   } else cached = { kind: "off" };
   return cached;
